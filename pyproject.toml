@@ -1,0 +1,59 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ffd-core"
+version = "0.2.0"
+description = "Faster Flash Decoding: Efficient Long-Context Decoding via Attention Sparsity"
+requires-python = ">=3.10"
+license = {text = "Apache-2.0"}
+authors = [
+    {name = "Zhigeng Liu"},
+    {name = "Zhiyuan Ning"},
+    {name = "Ruixiao Li"},
+    {name = "Xiaoran Liu"},
+    {name = "Yuerong Song"},
+    {name = "Min Zhang"},
+    {name = "Ziwei He"},
+    {name = "Xipeng Qiu"},
+]
+keywords = [
+    "llm",
+    "attention",
+    "sparse-attention",
+    "kv-cache",
+    "long-context",
+    "triton",
+    "cuda",
+    "decoding",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.urls]
+Repository = "https://github.com/qluoluo/faster-flash-decoding"
+
+dependencies = [
+    "numpy>=1.26",
+    "sentencepiece>=0.2.1",
+    "safetensors>=0.7.0",
+    "torch>=2.8",
+    "transformers==4.57.3",
+    "triton>=3.4",
+]
+
+[project.optional-dependencies]
+flash-attn = ["flash-attn==2.8.3"]
+dev = ["pytest>=9", "ruff>=0.11"]
+
+[tool.setuptools.packages.find]
+include = ["ffd_core*"]
